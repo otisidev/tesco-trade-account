@@ -4,10 +4,8 @@
 	"main": "main.js",
 	"license": "MIT",
 	"scripts": {
-		"client": "cd client && yarn start",
-		"build": "cd client && yarn build",
-		"server": "nodemon main.js",
-		"dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+		"build": "node -v",
+		"start": "node main.js"
 	},
 	"keywords": [
 		"bitcoin",
@@ -16,9 +14,6 @@
 		"mining"
 	],
 	"description": "Investment trading|mining application",
-	"devDependencies": {
-		"concurrently": "^3.5.0"
-	},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
 		"bitcoin-address-validation": "^1.0.0",

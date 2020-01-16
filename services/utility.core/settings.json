@@ -1,0 +1,27 @@
+{
+	"app_name": "Tesco Investment",
+	"url": "https://www.tescotrades.com",
+	"account_url": "https://account.tescotrades.com",
+	"next_fund_hour": 168,
+	"next_fund_hour_reminder": 150,
+	"validateEmail": true,
+	"validateWalletAddress": true,
+	"auth": {
+		"pass": "password123",
+		"username": "trans@tescotrades.com",
+		"updated_username": "no-reply@tescotrades.com"
+	},
+	"port": 465,
+	"smtp_server": "mail.webrahost.eu",
+	"data": {
+		"daily_transaction": 2341,
+		"active_investor": 2021,
+		"consultant": 253,
+		"total_investment": 2419
+	},
+	"support": {
+		"email": "support@tescotrades.com",
+		"pass": "password123"
+	},
+	"percent": 0.1
+}

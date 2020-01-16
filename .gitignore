@@ -1,0 +1,8 @@
+**.vs
+**/node_modules
+**/bower_components
+**/logs
+logs/error.log
+.env
+*.lock
+package-lock.json

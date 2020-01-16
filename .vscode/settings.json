@@ -1,0 +1,14 @@
+{
+	"material-icon-theme.folders.theme": "specific",
+	"material-icon-theme.activeIconPack": "react",
+	"material-icon-theme.folders.color": "#673AB7",
+	"search.exclude": {
+		"**/.vscode": true
+	},
+	"files.exclude": {
+		"**/.vscode": true,
+		"**/bower_components": true,
+		"**/node_modules": true
+	},
+	"cSpell.words": ["SMTP", "appsetting"]
+}

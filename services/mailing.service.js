@@ -1,163 +1,141 @@
 "use strict";
 const nodemailer = require("nodemailer");
 const { appSetting } = require("../appsetting");
+const { config } = require("dotenv");
+
+config();
+const { USER = "info@tescotrades.com", USER_PWD = "pa$$w0rd@1@2" } = process.env;
+
+const mailingOption = {
+    host: "smtp.zoho.com",
+    port: 465,
+    secured: true,
+    auth: {
+        user: USER,
+        pass: USER_PWD,
+    },
+};
 
 class MailingService {
-	/**
-	 * send email message to user's email address
-	 * @param {string} name name  of user
-	 * @param {string} email email address
-	 * @param {string} subject email subject
-	 * @param {htmlstring} body body of the message
-	 * @param {string} title caption of the message
-	 * @param {Array} files list of files for attachment
-	 */
-	async sendEmail(name, email, subject, body, title, files = null) {
-		// transport
-		if (email) {
-			const transport = nodemailer.createTransport({
-				host: appSetting.all.smtp_server,
-				auth: {
-					user: appSetting.all.auth.updated_username,
-					pass: appSetting.all.auth.pass
-				},
-				connectionTimeout: 60000,
-				port: appSetting.all.port,
-				tls: { rejectUnauthorized: false }
-			});
-			// compose email here
-			const mailOption = {
-				to: email,
-				from: `${appSetting.all.app_name} Team <${appSetting.all.auth.updated_username}>`,
-				html: buildTemplate(name, body, title),
-				subject: subject,
-				attachments: files
-			};
+    /**
+     * send email message to user's email address
+     * @param {string} name name  of user
+     * @param {string} email email address
+     * @param {string} subject email subject
+     * @param {htmlstring} body body of the message
+     * @param {string} title caption of the message
+     * @param {Array} files list of files for attachment
+     */
+    async sendEmail(name, email, subject, body, title, files = null) {
+        // transport
+        if (email) {
+            const transport = nodemailer.createTransport(mailingOption);
+            // compose email here
+            const mailOption = {
+                to: email,
+                from: `${appSetting.all.app_name} Team <${USER}>`,
+                html: buildTemplate(name, body, title),
+                subject: subject,
+                attachments: files,
+            };
 
-			const res = await transport.sendMail(mailOption);
+            const res = await transport.sendMail(mailOption);
 
-			if (res.accepted) {
-				return {
-					status: 200,
-					message: "Email sent Successfully"
-				};
-			} else {
-				throw new Error("Mail not sent!");
-			}
-		} else {
-			throw new Error("Email receipent address not defined!");
-		}
-	}
-	/**
-	 * Sends email confirmation to user
-	 * @param {string} id user's id
-	 * @param {string} email user's email address
-	 * @param {string} name user's name
-	 */
-	async sendConfirmEmail(id, email, name) {
-		//transport
-		const transport = nodemailer.createTransport({
-			host: appSetting.all.smtp_server,
-			auth: {
-				user: appSetting.all.auth.updated_username,
-				pass: appSetting.all.auth.pass
-			},
-			port: appSetting.all.port,
-			connectionTimeout: 60000,
-			tls: { rejectUnauthorized: false }
-		});
-		const mailOption = {
-			to: email,
-			from: `${appSetting.all.app_name} Team <${appSetting.all.auth.updated_username}>`,
-			html: buildTemplateForVerification(name, email, id),
-			subject: "Account Verification"
-		};
-		const res = await transport.sendMail(mailOption);
-		if (res.accepted) {
-			return {
-				status: 200,
-				message: "Email sent Successfully"
-			};
-		} else {
-			throw new Error("Mail not sent!");
-		}
-	}
+            if (res.accepted) {
+                return {
+                    status: 200,
+                    message: "Email sent Successfully",
+                };
+            } else {
+                throw new Error("Mail not sent!");
+            }
+        } else {
+            throw new Error("Email recipient address not defined!");
+        }
+    }
+    /**
+     * Sends email confirmation to user
+     * @param {string} id user's id
+     * @param {string} email user's email address
+     * @param {string} name user's name
+     */
+    async sendConfirmEmail(id, email, name) {
+        //transport
+        const transport = nodemailer.createTransport(mailingOption);
+        const mailOption = {
+            to: email,
+            from: `${appSetting.all.app_name} Team <${USER}>`,
+            html: buildTemplateForVerification(name, email, id),
+            subject: "Account Verification",
+        };
+        const res = await transport.sendMail(mailOption);
+        if (res.accepted) {
+            return {
+                status: 200,
+                message: "Email sent Successfully",
+            };
+        } else {
+            throw new Error("Mail not sent!");
+        }
+    }
 
-	/**
-	 * Send email to user
-	 * @param {string} email email address
-	 * @param {string} subject message subject
-	 * @param {string} body html formatted string
-	 */
-	async sendEmailMessage(email, subject, body) {
-		//send mail here
-		const transport = nodemailer.createTransport({
-			host: appSetting.all.smtp_server,
-			auth: {
-				user: appSetting.all.support.email,
-				pass: appSetting.all.support.pass
-			},
-			port: appSetting.all.port,
-			connectionTimeout: 60000,
-			tls: { rejectUnauthorized: false }
-		});
-		const mailOption = {
-			to: email,
-			from: `Tesco Support Team <${appSetting.all.support.email}>`,
-			html: buildMailTemplate(body),
-			subject: subject
-		};
-		const res = await transport.sendMail(mailOption);
-		if (res.accepted) {
-			return {
-				status: 200,
-				message: `Email sent to ${email} successfully`
-			};
-		} else {
-			throw new Error("Mail not sent!");
-		}
-	}
+    /**
+     * Send email to user
+     * @param {string} email email address
+     * @param {string} subject message subject
+     * @param {string} body html formatted string
+     */
+    async sendEmailMessage(email, subject, body) {
+        //send mail here
+        const transport = nodemailer.createTransport(mailingOption);
+        const mailOption = {
+            to: email,
+            from: `Tesco Support Team <${USER}>`,
+            html: buildMailTemplate(body),
+            subject: subject,
+        };
+        const res = await transport.sendMail(mailOption);
+        if (res.accepted) {
+            return {
+                status: 200,
+                message: `Email sent to ${email} successfully`,
+            };
+        } else {
+            throw new Error("Mail not sent!");
+        }
+    }
 
-	/**
-	 * send change of password email
-	 * @param {string} id user id
-	 * @param {string} name user name
-	 * @param {string} email user email address
-	 * @param {string} code activation code
-	 * @param {string} resetId password reset code
-	 */
-	async SendPasswordResetLink(id, name, email, code, resetId) {
-		//send mail here
-		const transport = nodemailer.createTransport({
-			host: appSetting.all.smtp_server,
-			auth: {
-				user: appSetting.all.auth.updated_username,
-				pass: appSetting.all.auth.pass
-			},
-			port: appSetting.all.port,
-			connectionTimeout: 60000,
-			tls: { rejectUnauthorized: false }
-		});
-		const mailOption = {
-			to: email,
-			from: `${appSetting.all.app_name} Team <${appSetting.all.auth.updated_username}>`,
-			html: buildPasswordRestTemplate(name, id, code, email, resetId),
-			subject: "Password reset"
-		};
-		const res = await transport.sendMail(mailOption);
-		if (res.accepted) {
-			return {
-				status: 200,
-				message: `Email sent to ${email} successfully`
-			};
-		} else {
-			throw new Error("Mail not sent!");
-		}
-	}
+    /**
+     * Send change of password email
+     * @param {string} id user id
+     * @param {string} name user name
+     * @param {string} email user email address
+     * @param {string} code activation code
+     * @param {string} resetId password reset code
+     */
+    async SendPasswordResetLink(id, name, email, code, resetId) {
+        //send mail here
+        const transport = nodemailer.createTransport(mailingOption);
+        const mailOption = {
+            to: email,
+            from: `${appSetting.all.app_name} Team <${USER}>`,
+            html: buildPasswordRestTemplate(name, id, code, email, resetId),
+            subject: "Password reset",
+        };
+        const res = await transport.sendMail(mailOption);
+        if (res.accepted) {
+            return {
+                status: 200,
+                message: `Email sent to ${email} successfully`,
+            };
+        } else {
+            throw new Error("Mail not sent!");
+        }
+    }
 }
 
 function buildTemplateForVerification(name, email, id) {
-	return `
+    return `
          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -382,7 +360,7 @@ function buildTemplateForVerification(name, email, id) {
 }
 
 function buildTemplate(name, body, title) {
-	return `
+    return `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -593,7 +571,7 @@ function buildTemplate(name, body, title) {
 }
 
 function buildMailTemplate(body) {
-	return `
+    return `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -790,7 +768,7 @@ function buildMailTemplate(body) {
 }
 
 function buildPasswordRestTemplate(name, id, code, email, resetId) {
-	return `
+    return `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 

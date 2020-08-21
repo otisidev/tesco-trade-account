@@ -13,7 +13,7 @@
 		"currency",
 		"mining"
 	],
-	"description": "Investment trading|mining application",
+	"description": "Investment trading | mining application",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
 		"bitcoin-address-validation": "^1.0.0",

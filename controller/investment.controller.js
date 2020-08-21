@@ -189,7 +189,7 @@ module.exports.creditcard = {
 
 	// get
 	/** Get credit card list
-	 * @param {request} req resquest object
+	 * @param {request} req request object
 	 * @param {response} res response object
 	 */
 	Get: async (req, res) => {

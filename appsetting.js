@@ -157,33 +157,33 @@ function ReadFile() {
  */
 function AsViewModel(model) {
 	return {
-		app_name: model.app_name,
-		url: model.url,
-		account_url: model.account_url,
-		next_fund_hour: model.next_fund_hour,
-		next_fund_hour_reminder: model.next_fund_hour_reminder,
-		validateEmail: model.validateEmail,
-		validateWalletAddress: model.validateWalletAddress,
-		auth: {
-			pass: model.auth.pass,
-			username: model.auth.username,
-			updated_username: model.auth.updated_username
-		},
-		port: model.port,
-		smtp_server: model.smtp_server,
+        app_name: model.app_name,
+        url: model.url,
+        account_url: "https://tesco-account.herokuapp.com" || model.account_url,
+        next_fund_hour: model.next_fund_hour,
+        next_fund_hour_reminder: model.next_fund_hour_reminder,
+        validateEmail: model.validateEmail,
+        validateWalletAddress: model.validateWalletAddress,
+        auth: {
+            pass: model.auth.pass,
+            username: model.auth.username,
+            updated_username: model.auth.updated_username,
+        },
+        port: model.port,
+        smtp_server: model.smtp_server,
 
-		support: {
-			email: model.support.email,
-			pass: model.support.pass
-		},
-		data: {
-			daily_transaction: parseInt(model.data.daily_transaction),
-			active_investor: parseInt(model.data.active_investor),
-			consultant: parseInt(model.data.consultant),
-			total_investment: parseInt(model.data.total_investment)
-		},
-		percent: model.percent
-	};
+        support: {
+            email: model.support.email,
+            pass: model.support.pass,
+        },
+        data: {
+            daily_transaction: parseInt(model.data.daily_transaction),
+            active_investor: parseInt(model.data.active_investor),
+            consultant: parseInt(model.data.consultant),
+            total_investment: parseInt(model.data.total_investment),
+        },
+        percent: model.percent,
+    };
 }
 
 // export class

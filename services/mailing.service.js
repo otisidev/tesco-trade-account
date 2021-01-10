@@ -940,7 +940,7 @@ function buildPasswordRestTemplate(name, id, code, email, resetId) {
                                   <w:anchorlock/>
                                 <![endif]-->
                                 <a style="background-color:#24a982;border-radius:5px;color:#fff;display:inline-block;font-family: &#39;lato&#39;, &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;font-size:15px;line-height:44px;text-align:center;text-decoration:none;width:250px;-webkit-text-size-adjust:none;"
-                                href="https://tesco-account.herokuapp.com/account/new-password?id=${id}&email=${email}&resetId=${resetId}&code=${code}">Change Password</a>
+                                href="https://app.tescotrades.com/account/new-password?id=${id}&email=${email}&resetId=${resetId}&code=${code}">Change Password</a>
                                 <!--[if mso]>
                                 </v:roundrect>
                               <![endif]-->

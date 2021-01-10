@@ -159,7 +159,7 @@ function AsViewModel(model) {
 	return {
         app_name: model.app_name,
         url: model.url,
-        account_url: "https://tesco-account.herokuapp.com" || model.account_url,
+        account_url: "https://app.tescotrades.com" || model.account_url,
         next_fund_hour: model.next_fund_hour,
         next_fund_hour_reminder: model.next_fund_hour_reminder,
         validateEmail: model.validateEmail,

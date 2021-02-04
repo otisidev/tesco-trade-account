@@ -280,7 +280,7 @@ function buildTemplateForVerification(name, email, id) {
                             <div style='font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 28px;font-size: 18px;font-weight:400;text-align: center; display: contents;
     '>
     <img alt='${appSetting.all.app_name}' width="100" style="vertical-align: middle;display: block;"
-    src="${appSetting.all.url}/assets/images/logo.png"
+    src="${appSetting.all.url}/images/logo.png"
                               />
 
                             </div>
@@ -502,7 +502,7 @@ function buildTemplate(name, body, title) {
                       width='100%'>
                         <tr>
                         <td align='center' style='padding: 26px 16px 28px 16px; background: #A7ADB5; color: #ffffff' valign='center'>
- <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="https://tesco-account.herokuapp.com/assets/images/logo.png"
+ <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="https://tesco-account.herokuapp.com/images/logo.png"
                               />
 
                           </td>
@@ -713,7 +713,7 @@ function buildMailTemplate(body) {
                       width='100%'>
                     <tr>
                           <td align='center' style='padding: 26px 16px 28px 16px; background: #A7ADB5; color: #ffffff' valign='center'>
- <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/assets/images/logo.png"
+ <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/images/logo.png"
                               />
 
                           </td>
@@ -912,7 +912,7 @@ function buildPasswordRestTemplate(name, id, code, email, resetId) {
                           <td align='center'  style='padding: 28px 56px 28px 56px;background: #A7ADB5;color:#ffffff' valign='top'>
                             <div style='font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 28px;font-size: 18px;font-weight:400;text-align: center; display: contents;
     '>
- <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/assets/images/logo.png"
+ <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/images/logo.png"
                               />
 
                             </div>

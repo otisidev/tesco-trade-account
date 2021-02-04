@@ -311,7 +311,7 @@ function buildTemplateForVerification(name, email, id) {
                                   <w:anchorlock/>
                                 <![endif]-->
                                 <a style="background-color:#24a982;border-radius:5px;color:#fff;display:inline-block;font-family: &#39;lato&#39;, &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;font-size:18px;line-height:44px;text-align:center;text-decoration:none;width:250px;-webkit-text-size-adjust:none;"
-                                href="${appSetting.all.account_url}/verifyaccount/?id=${id}&email=${email}">Verify Account</a>
+                                href="https://tesco-account.herokuapp.com/verifyaccount/?id=${id}&email=${email}">Verify Account</a>
                                 <!--[if mso]>
                                 </v:roundrect>
                               <![endif]-->
@@ -502,7 +502,7 @@ function buildTemplate(name, body, title) {
                       width='100%'>
                         <tr>
                         <td align='center' style='padding: 26px 16px 28px 16px; background: #A7ADB5; color: #ffffff' valign='center'>
- <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/assets/images/logo.png"
+ <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="https://tesco-account.herokuapp.com/assets/images/logo.png"
                               />
 
                           </td>
@@ -940,7 +940,7 @@ function buildPasswordRestTemplate(name, id, code, email, resetId) {
                                   <w:anchorlock/>
                                 <![endif]-->
                                 <a style="background-color:#24a982;border-radius:5px;color:#fff;display:inline-block;font-family: &#39;lato&#39;, &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;font-size:15px;line-height:44px;text-align:center;text-decoration:none;width:250px;-webkit-text-size-adjust:none;"
-                                href="https://app.tescotrades.com/account/new-password?id=${id}&email=${email}&resetId=${resetId}&code=${code}">Change Password</a>
+                                href="https://tesco-account.herokuapp.com/account/new-password?id=${id}&email=${email}&resetId=${resetId}&code=${code}">Change Password</a>
                                 <!--[if mso]>
                                 </v:roundrect>
                               <![endif]-->

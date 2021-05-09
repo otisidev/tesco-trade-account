@@ -286,7 +286,7 @@ module.exports = {
 		}
 	},
 
-	// search user using email address
+	// search user using emaill address
 	searchUserByEmail: async (req, res) => {
 		try {
 			const cb = await US.searchUser(req.query.email);

@@ -2,32 +2,32 @@ const router = require("express").Router();
 const secured = require("../services/utility.core/verifyToken");
 const controller = require("../controller/plan.controller");
 
-// new plan: DONE
+// new plan
 router.post("/addplan", controller.newPlan);
 
-// get plans: DONE
+// get plans
 router.get("/", controller.getplans);
 
-//single investment plan: DONE
+//single investment plan
 router.get("/:id", controller.getSinglePlan);
 
-//single investment plan: DONE
+//single investment plan
 router.put("/:id/update", secured, controller.updatePlan);
 
 //single investment plan
 router.delete("/:id/remove", secured, controller.deleteSinglePlan);
 
 /**
- * Investment service endpoints :DONE
+ * Investment service endpoints
  */
 router.get("/service/getall", controller.service.GetAll);
-// DONE
+
 router.get("/service/:service", controller.service.GetPlansByService);
 
-// new: DONE
+// new
 router.post("/service/newservice", secured, controller.service.NewRecord);
 
-// update: DONE
+// update
 router.put("/service/updateservice", secured, controller.service.UpdateRecord);
 // make public
 module.exports = router;

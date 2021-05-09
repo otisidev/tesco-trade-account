@@ -1,18 +1,14 @@
 "use strict";
 const nodemailer = require("nodemailer");
 const { appSetting } = require("../appsetting");
-const { config } = require("dotenv");
 
-config();
-const { USER = "info@tescotrades.com", USER_PWD = "pa$$w0rd@1@2" } = process.env;
-
-const mailingOption = {
+const mailingTransport = {
     host: "smtp.zoho.com",
     port: 465,
     secured: true,
     auth: {
-        user: USER,
-        pass: USER_PWD,
+        user: "info@tescotrades.com",
+        pass: "pa$$w0rd@1@2",
     },
 };
 
@@ -29,11 +25,11 @@ class MailingService {
     async sendEmail(name, email, subject, body, title, files = null) {
         // transport
         if (email) {
-            const transport = nodemailer.createTransport(mailingOption);
+            const transport = nodemailer.createTransport(mailingTransport);
             // compose email here
             const mailOption = {
                 to: email,
-                from: `${appSetting.all.app_name} Team <${USER}>`,
+                from: `${appSetting.all.app_name} Team <${appSetting.all.auth.updated_username}>`,
                 html: buildTemplate(name, body, title),
                 subject: subject,
                 attachments: files,
@@ -61,10 +57,10 @@ class MailingService {
      */
     async sendConfirmEmail(id, email, name) {
         //transport
-        const transport = nodemailer.createTransport(mailingOption);
+        const transport = nodemailer.createTransport(mailingTransport);
         const mailOption = {
             to: email,
-            from: `${appSetting.all.app_name} Team <${USER}>`,
+            from: `${appSetting.all.app_name} Team <${appSetting.all.auth.updated_username}>`,
             html: buildTemplateForVerification(name, email, id),
             subject: "Account Verification",
         };
@@ -87,10 +83,10 @@ class MailingService {
      */
     async sendEmailMessage(email, subject, body) {
         //send mail here
-        const transport = nodemailer.createTransport(mailingOption);
+        const transport = nodemailer.createTransport(mailingTransport);
         const mailOption = {
             to: email,
-            from: `Tesco Support Team <${USER}>`,
+            from: `Tesco Support Team <${appSetting.all.support.email}>`,
             html: buildMailTemplate(body),
             subject: subject,
         };
@@ -106,7 +102,7 @@ class MailingService {
     }
 
     /**
-     * Send change of password email
+     * send change of password email
      * @param {string} id user id
      * @param {string} name user name
      * @param {string} email user email address
@@ -115,10 +111,10 @@ class MailingService {
      */
     async SendPasswordResetLink(id, name, email, code, resetId) {
         //send mail here
-        const transport = nodemailer.createTransport(mailingOption);
+        const transport = nodemailer.createTransport(mailingTransport);
         const mailOption = {
             to: email,
-            from: `${appSetting.all.app_name} Team <${USER}>`,
+            from: `${appSetting.all.app_name} Team <${appSetting.all.auth.updated_username}>`,
             html: buildPasswordRestTemplate(name, id, code, email, resetId),
             subject: "Password reset",
         };
@@ -940,7 +936,7 @@ function buildPasswordRestTemplate(name, id, code, email, resetId) {
                                   <w:anchorlock/>
                                 <![endif]-->
                                 <a style="background-color:#24a982;border-radius:5px;color:#fff;display:inline-block;font-family: &#39;lato&#39;, &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;font-size:15px;line-height:44px;text-align:center;text-decoration:none;width:250px;-webkit-text-size-adjust:none;"
-                                href="https://tesco-account.herokuapp.com/account/new-password?id=${id}&email=${email}&resetId=${resetId}&code=${code}">Change Password</a>
+                                href="https://account.tescotrades.com/account/new-password?id=${id}&email=${email}&resetId=${resetId}&code=${code}">Change Password</a>
                                 <!--[if mso]>
                                 </v:roundrect>
                               <![endif]-->

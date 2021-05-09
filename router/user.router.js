@@ -4,67 +4,67 @@ const controller = require("../controller/user.controller");
 const secured = require("../services/utility.core/verifyToken");
 
 // /users: route
-// new user: DONE
+// new user:
 router.post("/add", controller.newUser);
 
-// get user: DONE
+// get user
 router.get("/", controller.getUsers);
 
-// get single user: DONE
+// get single user
 router.get("/:id", controller.getSingleUser);
 
-// verify account: DONE
+// verify account
 router.put("/:id/verify/account", controller.verifyAccount);
 
-// make admin: DONE
+// make admin
 router.put("/s/admin/:id", secured, controller.makeUserAdmin);
 
-// remove admin rights: DONE
+// remove admin rights
 router.put("/r/admin/:id", secured, controller.removeUserAdminRight);
 
-// suspend account: DONE
+// suspend account
 router.put("/s/suspension/:id", secured, controller.suspendAccount);
 
-// remove suspension: DONE
+// remove suspension
 router.put("/r/suspension/:id", secured, controller.resolveAccountSuspension);
 
-// get user recent activity: DONE
+// get user recent activity
 router.get("/:id/activity", controller.getUserRecentActitvities);
 
-// login: DONE
+// login
 router.post("/login", controller.login);
 
-// sub to plan: DONE
+// sub to plan
 router.post("/plan/s", secured, controller.setPlan);
 
-// increase account balance : tested: DONE
+// increase account balance : tested
 router.put("/account/crd", secured, controller.increaseAccount);
 
-// updated account:DONE
+// updated account
 router.put("/:id/update", secured, controller.updateAccountProfile);
 
-// referrals: DONE
+// referrals
 router.get("/:id/referrals", controller.getReferral);
 
-// remove user: DONE
+// remove user
 router.delete("/:id/remove/account", secured, controller.removeAccount);
 
-// remove user: DONE
+// remove user
 router.get("/:id/account/status", secured, controller.checkReferrerStatus);
 
-// send mail for testing: DONE
+// send mail for testing
 router.post("/account/verification", controller.sendMail);
 
-// send mail for testing: DONE
+// send mail for testing
 router.put("/contact/us", controller.sendContactMail);
 
-// search: DONE
+// search
 router.get("/search/email", controller.searchUserByEmail);
 
-// new pass request: DONE
+// new pass request
 router.post("/reset-password/request", controller.sendPasswordResetEmail);
 
-// new password: DONE
+// new password
 router.post("/reset-password/complete", controller.newPassword);
 
 // make public

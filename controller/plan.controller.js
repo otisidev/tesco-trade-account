@@ -32,7 +32,7 @@ module.exports = {
 	}
 };
 /**
- * Investment service
+ * Invesmtent service
  */
 module.exports.service = {
 	//all

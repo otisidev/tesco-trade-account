@@ -4,8 +4,9 @@
 	"main": "main.js",
 	"license": "MIT",
 	"scripts": {
-		"build": "node -v",
-		"start": "node main.js"
+		"build": "yarn",
+		"start": "node main.js",
+		"dev": "nodemon main.js"
 	},
 	"keywords": [
 		"bitcoin",

@@ -1,7 +1,7 @@
 {
 	"app_name": "Tesco Investment",
 	"url": "https://www.tescotrades.com",
-	"account_url": "https://account.tescotrades.com",
+	"account_url": "https://tesco-account.herokuapp.com",
 	"next_fund_hour": 168,
 	"next_fund_hour_reminder": 150,
 	"validateEmail": true,

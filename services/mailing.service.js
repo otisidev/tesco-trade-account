@@ -276,7 +276,7 @@ function buildTemplateForVerification(name, email, id) {
                             <div style='font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 28px;font-size: 18px;font-weight:400;text-align: center; display: contents;
     '>
     <img alt='${appSetting.all.app_name}' width="100" style="vertical-align: middle;display: block;"
-    src="${appSetting.all.url}/assets/images/logo.png"
+    src="${appSetting.all.url}/images/logo.png"
                               />
 
                             </div>
@@ -307,7 +307,7 @@ function buildTemplateForVerification(name, email, id) {
                                   <w:anchorlock/>
                                 <![endif]-->
                                 <a style="background-color:#24a982;border-radius:5px;color:#fff;display:inline-block;font-family: &#39;lato&#39;, &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;font-size:18px;line-height:44px;text-align:center;text-decoration:none;width:250px;-webkit-text-size-adjust:none;"
-                                href="${appSetting.all.account_url}/verifyaccount/?id=${id}&email=${email}">Verify Account</a>
+                                href="https://tesco-account.herokuapp.com/verifyaccount/?id=${id}&email=${email}">Verify Account</a>
                                 <!--[if mso]>
                                 </v:roundrect>
                               <![endif]-->
@@ -498,7 +498,7 @@ function buildTemplate(name, body, title) {
                       width='100%'>
                         <tr>
                         <td align='center' style='padding: 26px 16px 28px 16px; background: #A7ADB5; color: #ffffff' valign='center'>
- <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/assets/images/logo.png"
+ <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="https://tesco-account.herokuapp.com/images/logo.png"
                               />
 
                           </td>
@@ -709,7 +709,7 @@ function buildMailTemplate(body) {
                       width='100%'>
                     <tr>
                           <td align='center' style='padding: 26px 16px 28px 16px; background: #A7ADB5; color: #ffffff' valign='center'>
- <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/assets/images/logo.png"
+ <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/images/logo.png"
                               />
 
                           </td>
@@ -908,7 +908,7 @@ function buildPasswordRestTemplate(name, id, code, email, resetId) {
                           <td align='center'  style='padding: 28px 56px 28px 56px;background: #A7ADB5;color:#ffffff' valign='top'>
                             <div style='font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 28px;font-size: 18px;font-weight:400;text-align: center; display: contents;
     '>
- <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/assets/images/logo.png"
+ <img alt="${appSetting.all.app_name}" width="150" style="margin-bottom: 1em;" style="vertical-align: middle;" src="${appSetting.all.url}/images/logo.png"
                               />
 
                             </div>

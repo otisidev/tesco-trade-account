@@ -1,36 +1,39 @@
 {
-	"name": "TESCO-trade-api",
-	"version": "1.0.0",
-	"main": "main.js",
-	"license": "MIT",
-	"scripts": {
-		"build": "yarn",
-		"start": "node main.js",
-		"dev": "nodemon main.js"
-	},
-	"keywords": [
-		"bitcoin",
-		"crypto",
-		"currency",
-		"mining"
-	],
-	"description": "Investment trading | mining application",
-	"dependencies": {
-		"bcryptjs": "^2.4.3",
-		"bitcoin-address-validation": "^1.0.0",
-		"body-parser": "^1.18.3",
-		"core-js": "^3.0.0",
-		"cors": "^2.8.4",
-		"dotenv": "^7.0.0",
-		"email-deep-validator": "^3.3.0",
-		"express": "^4.16.4",
-		"express-winston": "^3.2.1",
-		"formidable": "^1.2.1",
-		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^5.4.22",
-		"mongoose-paginate": "^5.0.3",
-		"nodemailer": "^6.1.0",
-		"socket.io": "^2.2.0",
-		"winston": "^3.2.1"
-	}
+    "name": "TESCO-trade-api",
+    "version": "1.0.0",
+    "main": "main.js",
+    "license": "MIT",
+    "engines": {
+        "node": "14.x"
+    },
+    "scripts": {
+        "build": "yarn",
+        "start": "node main.js",
+        "dev": "nodemon main.js"
+    },
+    "keywords": [
+        "bitcoin",
+        "crypto",
+        "currency",
+        "mining"
+    ],
+    "description": "Investment trading | mining application",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "bitcoin-address-validation": "^1.0.0",
+        "body-parser": "^1.18.3",
+        "core-js": "^3.0.0",
+        "cors": "^2.8.4",
+        "dotenv": "^7.0.0",
+        "email-deep-validator": "^3.3.0",
+        "express": "^4.16.4",
+        "express-winston": "^3.2.1",
+        "formidable": "^1.2.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.4.22",
+        "mongoose-paginate": "^5.0.3",
+        "nodemailer": "^6.1.0",
+        "socket.io": "^2.2.0",
+        "winston": "^3.2.1"
+    }
 }
